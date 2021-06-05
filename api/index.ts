@@ -90,39 +90,7 @@ apollo.applyMiddleware({ app: express })
 const httpServer = Http.createServer(express)
 // apollo.installSubscriptionHandlers(httpServer)
 
-httpServer.listen({ port: 4000 }, async () =>{
-    // await agenda.start();
+httpServer.listen({ port: process.env.PORT || 4000 }, async () =>{
 
-    // create the graphq server.
-    // new SubscriptionServer({
-    //     execute,
-    //     subscribe,
-    //     schema,
-    //     onConnect: (connectionParams: any, webSocket:any, socketContext: ConnectionContext) => {
-    //         if (connectionParams.Authorization) {
-    //             // let req= createExpress.request
-    //             let context = createContext({params: {Authorization: connectionParams.Authorization}})
-    //             let uid = getUserId(context);
-    //             if(!uid){
-    //                 throw new Error("No user found, please add your auth token")
-    //             }
-    //             return findUser(uid).then(user => {
-    //                 return {
-    //                     ...context,
-    //                     currentUser: user
-    //                 }
-    //             }).catch(err => {
-    //                 throw err
-    //             })
-    //        }    
-    //     }
-    // }, {
-    //     server: httpServer,
-    //     path: '/graphql'
-    // });
-
-    console.log(`🚀 Server ready at http://localhost:${4000}${apollo.graphqlPath}`)
-    console.log(`🚀 Web sockets at ws://localhost:${4000}`)
-    console.log(`🚀 Webhook running on http://localhost:${4000}/webhook`)
-    console.log(`🚀 Access jobs running on http://localhost:${4000}/jobs`)
+    console.log(`🚀 Server ready at http://localhost:${process.env.PORT || 4000}${apollo.graphqlPath}`)
 })
