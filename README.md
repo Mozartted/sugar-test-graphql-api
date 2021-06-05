@@ -10,3 +10,6 @@ sudo docker-compose -p sugarliving -d up
 ```sh
 yarn dev
 ```
+
+## Deploying the service.
+The application runs on a node server to it would be best to load balance it with an nginx server if you intend to run multiple instances of the service for scaling.

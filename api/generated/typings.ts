@@ -142,7 +142,7 @@ export interface NexusGenFieldTypes {
   }
   Query: { // field return type
     apartments: Array<NexusGenRootTypes['Apartment'] | null> | null; // [Apartment]
-    me: NexusGenRootTypes['MyAccess'] | null; // MyAccess
+    my_access: NexusGenRootTypes['MyAccess'] | null; // MyAccess
     residents: Array<NexusGenRootTypes['User'] | null> | null; // [User]
   }
   User: { // field return type

@@ -84,7 +84,7 @@ type OnlineDoor {
 
 type Query {
   apartments: [Apartment]
-  me: MyAccess
+  my_access: MyAccess
   residents: [User]
 }
 

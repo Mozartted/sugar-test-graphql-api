@@ -16,7 +16,6 @@ export default shield({
         // post: isAuthenticated
     },
     Mutation: {
-        my_access: isAuthenticated,
         manageDoor: isAuthenticated
         // createOrder: isAuthenticated,
         // createOffer: isAuthenticated,

@@ -3,9 +3,6 @@ import Axios, {AxiosInstance} from "axios"
 const ACME_API = process.env.ACME_API
 const ACME_TOKEN = process.env.ACME_TOKEN
 
-console.log(ACME_TOKEN, ACME_API)
-
-
 export class AcmeService {
     private axios: AxiosInstance;
 

@@ -37,14 +37,13 @@ export const ApartmentImportService = async (doorStreamObject: NodeJS.ReadStream
             residentStreamObject.pipe(parser()).on('data', async (row: any) => {
                 // console.log(row)
                 let doors = row['Doors'].split(",").map((word:string) => word.replace(/\s+/g, ' ').trim())
-                console.log(doors)
+                // console.log(doors)
                 // get the doors
                 let doorSet = (await db.door.findMany({where: {
                     name: {
                         in: doors
                     }
                 }}))
-                console.log(doorSet)
                 //let doors ID
                 let doorObjects = doorSet.map(door => {
                     return {id: door.id}
