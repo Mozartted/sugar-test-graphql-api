@@ -1,0 +1,42 @@
+generator prisma_client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Apartment {
+  id            String              @id @default(uuid())
+  name          String @unique
+  doors         Door[]
+  users         User[]
+}
+
+model Door {
+  id            String              @id @default(uuid())
+  name          String 
+  acme_id        String @unique
+  created_at     DateTime @default(now())
+  residents     User[] @relation("residentials")
+  apartment_id  String
+  apartment     Apartment  @relation(fields: [apartment_id], references: [id])
+  updated_at     DateTime @updatedAt
+}
+
+model User {
+  id             String        @id @default(uuid())
+  first_name     String 
+  last_name      String
+  role          Role   @default(RESIDENT)
+  email         String @unique
+  apartment_id  String?
+  apartment    Apartment?  @relation(fields: [apartment_id], references: [id])
+  doors         Door[] @relation("residentials")
+}
+
+enum Role {
+  RESIDENT
+  ADMIN
+}

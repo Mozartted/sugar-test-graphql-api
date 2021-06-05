@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "skipLibCheck":  true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "lib": [
+      "esnext"
+    ],
+    "strict": true,
+    "outDir": "./dist",
+    "rootDir": "api",
+    "noEmit": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "nexus/typescript-language-service"
+      }
+    ],
+    "paths": {
+      "*": [
+        "node_modules/*",
+        "node_modules/ravepay/types/*",
+        "api/*",
+        "api/generated/*"
+      ]
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "types",
+      "api/generated"
+    ]
+  },
+  "include": [
+    "types.d.ts",
+    "api"
+  ]
+}

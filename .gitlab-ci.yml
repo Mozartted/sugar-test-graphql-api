@@ -1,0 +1,35 @@
+
+image: node:latest
+
+stages:
+    # - staging
+    - production
+
+# staging:
+#     type: deploy
+#     stage: staging
+#     image: ruby:latest
+#     script:
+#         - apt-get update -qy
+#         - apt-get install -y ruby-dev
+#         - gem install dpl
+#         - dpl --provider=heroku --app=$HEROKU_APP --api-key=$HEROKU_API_KEY
+#     only:
+#         - dev
+
+production:
+   type: deploy
+   stage: production
+   image: tetraweb/php:7.0
+   script:
+        - apt-get update -qq
+        - apt-get install -qq git
+        # Setup SSH deploy keys
+        - 'which ssh-agent || ( apt-get install -qq openssh-client )'
+        - eval $(ssh-agent -s)
+        - ssh-add <(echo "$SERVER_SSH_ACCESS")
+        - mkdir -p ~/.ssh
+        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+        - ssh deployer@165.232.137.246 "cd ~/Pearcoins/pearcoins-api && git pull origin dev && npm install && pm2 restart server_start.sh"
+   only:
+       - dev
