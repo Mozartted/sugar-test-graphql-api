@@ -7,11 +7,11 @@ lerna-debug.log*
 # Prisma
 failed-inferMigrationSteps*
 .vscode
-.env
-prisma/.env
+# .env
+# prisma/.env
 
-docker-compose.yml
-database.env
+# docker-compose.yml
+# database.env
 mongodb-create.js
 
 log/*
