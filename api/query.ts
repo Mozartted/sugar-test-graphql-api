@@ -17,7 +17,7 @@ export const Query = schema.queryType({
       }
     })
 
-    t.field("me", {
+    t.field("my_access", {
       type: 'MyAccess',
       resolve: async (_root, _args, ctx: Context) => {
         let userId = getUserId(ctx)

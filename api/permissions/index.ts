@@ -11,11 +11,13 @@ const isAuthenticated = rule({ cache: 'contextual' })(
 
 export default shield({
     Query: {
-        me: isAuthenticated,
+        my_access: isAuthenticated,
         // filterPosts: isAuthenticated,
         // post: isAuthenticated
     },
     Mutation: {
+        my_access: isAuthenticated,
+        manageDoor: isAuthenticated
         // createOrder: isAuthenticated,
         // createOffer: isAuthenticated,
         // handleOffer: isAuthenticated,
@@ -26,9 +28,6 @@ export default shield({
         // deletePost: isAuthenticated,
         // publish: isAuthenticated
     }
-    // Subscription: {
-    //     offer_created: isAuthenticated
-    // }
 }, {
     fallbackError: (e: any) => e
 })
