@@ -33,7 +33,7 @@ export interface NexusGenInputs {
     email: string; // String!
   }
   ManageDoorInput: { // input type
-    door_id?: string | null; // String
+    door_id: string; // String!
     door_status: NexusGenEnums['LockInputEnum']; // LockInputEnum!
   }
   UserWhereUniqueInput: { // input type
@@ -127,7 +127,7 @@ export interface NexusGenFieldTypes {
   }
   Mutation: { // field return type
     login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
-    manageDoor: NexusGenRootTypes['Door'] | null; // Door
+    manageDoor: NexusGenRootTypes['OnlineDoor'] | null; // OnlineDoor
     uploadResidents: NexusGenRootTypes['Apartment'] | null; // Apartment
   }
   MyAccess: { // field return type

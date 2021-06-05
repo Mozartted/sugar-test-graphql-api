@@ -28,7 +28,7 @@ export const ApartmentUploadInput = schema.inputObjectType({
 export const ManageDoorInput = schema.inputObjectType({
   name: "ManageDoorInput",
   definition: t => {
-    t.string("door_id")
+    t.string("door_id", {required: true})
     t.field("door_status", {type: LockInputEnum, default: "LOCK", required: true})
   }
 })

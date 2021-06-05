@@ -12,7 +12,7 @@ const acmeService = new AcmeService();
 
 
 const manageDoor = mutationField("manageDoor",{
-    type: "Door",
+    type: "OnlineDoor",
     args: {
         input: ManageDoorInput.asArg({required: true})
     },
@@ -51,17 +51,14 @@ const manageDoor = mutationField("manageDoor",{
                     // make the request to lock the door.
                     response = await acmeService.lockDevice(door.acme_id);
                     if(response){
-                        return door
+                        return {...door, status: "LOCKED"}
                     }
                     break;
                 case "UNLOCK":
                     response = await acmeService.unlockDevice(door.acme_id);
                     if(response){
-                        return door
+                        return {...door, status: "UNLOCKED"}
                     }
-                    break;
-            
-                default:
                     break;
             }
         }

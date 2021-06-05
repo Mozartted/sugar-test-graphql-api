@@ -55,13 +55,13 @@ input LoginInput {
 }
 
 input ManageDoorInput {
-  door_id: String
+  door_id: String!
   door_status: LockInputEnum! = LOCK
 }
 
 type Mutation {
   login(input: LoginInput!): AuthPayload
-  manageDoor(input: ManageDoorInput!): Door
+  manageDoor(input: ManageDoorInput!): OnlineDoor
   uploadResidents(input: ApartmentUploadInput!): Apartment
 }
 
