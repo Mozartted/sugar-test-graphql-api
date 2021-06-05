@@ -67,6 +67,7 @@ const schema = applyMiddleware(
 
 const apollo = new ApolloServer({
     introspection: true,
+    playground: true, // Explicitly allowing playground in all application state
     schema,
     context: (request: any) => {
         // console.log(request.req);
