@@ -66,6 +66,7 @@ const schema = applyMiddleware(
 
 
 const apollo = new ApolloServer({
+    introspection: true,
     schema,
     context: (request: any) => {
         // console.log(request.req);
